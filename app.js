@@ -5,8 +5,9 @@ const path = require("path");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 // cookie parser middleware
-app.use(cookieParser());
+
 const app = express();
+app.use(cookieParser());
 const apiRouter = require("./api");
 const { router: authRouter } = require("./auth");
 const { db } = require("./database");
@@ -41,7 +42,7 @@ app.use((err, req, res, next) => {
 
 const runApp = async () => {
   try {
-    await db.sync();
+    await db.sync({alter: true});
     console.log("✅ Connected to the database");
     app.listen(PORT, () => {
       console.log(`🚀 Server is running on port ${PORT}`);

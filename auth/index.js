@@ -31,13 +31,13 @@ router.post("/signup", async (req, res) => {
     if (!username || !password) {
       return res
         .status(400)
-        .send({ error: "Username and password are required" });
+        .json({ error: "Username and password are required" });
     }
 
     if (password.length < 6) {
       return res
         .status(400)
-        .send({ error: "Password must be at least 6 characters long" });
+        .json({ error: "Password must be at least 6 characters long" });
     }
 
     // Check if user already exists
