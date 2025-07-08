@@ -1,7 +1,7 @@
 const db = require("./db");
 const Duck = require("./duck");
 const User = require("./user");
-const Student = require("./student");
+const Student = require("./students");
 const Campus = require("./campus");
 
 Student.belongsTo(Campus);
